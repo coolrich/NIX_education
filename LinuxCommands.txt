@@ -1,0 +1,62 @@
+1. Как посмотреть содержимое текстового файла?
+	less <filename>
+	cat <filename>
+	head <filename>
+	tail <filename>
+2. Что делает команда tail? Как посмотреть?
+	Команда «tail» выводит последнюю часть (по умолчанию 10 строк) каждого
+	файла. Чтобы узнать, что делает команда, нужно ввести команду «info tail» или «man tail».
+	tail <filename>.
+3. Как посмотреть текущую рабочую директорию?
+	pwd
+4. Как сменить рабочую директорию?
+	cd <путь к директории>
+5. Как перейти в родительскую директорию?
+	cd ..
+6. Как вернуться в домашнюю директорию?
+	cd
+7. Как вывести список файлов в директории?
+	1)ls
+	2)ll
+8. Как посмотреть время последнего изменения/доступа к файлу /tmp/test.txt?
+	время последнего доступа    ls -lu /temp/test.txt
+	время последнего изменения  ls -lc /temp/test.txt 
+9. Как создать новую директорию test?
+	mkdir test
+10. Как создать пустой файл?
+	touch empty.file
+11. Как создать файл /tmp/2mb.txt размером 2Mb?
+	1) fallocate -l <size_of_file> filename
+	2) truncate -s <size_of_file> filename
+	3) dd if=/dev/zero of=<filename> bs=<filesize> count=<number>
+		if=FILE - read from file instead of standart input
+		of=FILE - Write to FILE instead of standart input...
+		bs=BYTES- Set both input and output block sizes to BYTES.
+			  This makes 'dd' read and write bytes per block
+			  ovveriding and 'ibs' and 'obs' settings.
+		count   - Copy N 'ibs' -byte blocks from the input file,
+			  instead of everything until the end of the file.
+	4) head -c <filesize> /dev/zero > <filename>
+	5) xfs_mkfile <filesize> filename
+12. Как узнать тип файла?
+	file <filename>
+13. Как переименовать файл?
+	mv <souce_filename> <target_filename>
+14. Как удалить файл/директорию?
+	удалить файл: rm <filename>
+	рекурсивное удаление директории с файлами и вложенными директориями: rm -r <dir_name>
+	удаление пустой директории с вложенными пустыми директориями: rmdir -p <dir_path_name>
+15. Как создать символическую/жесткую ссылку на файл/директорию?
+	softlin: ln -s <source_filename> <linkname>
+	hardlink: ln -s <source_filename> <linkname>
+16. Как посмотреть размер файла?
+	ls -sh <filename>
+17. Как как узнать размер директории?
+	размер директории: ls -sh <dirname>
+	размер директории: du -sh <dirname>
+18. Как сравнить два текстовых файла?
+	diff <filename1> <filename2>
+19. Как посчитать количество строк в текстовом файле?
+	wc -l <filename>
+20. Как вывести на экран отсортированные строки текстового файла?
+	cat <textfile> | sort
